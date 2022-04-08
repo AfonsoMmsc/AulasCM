@@ -3,6 +3,8 @@ package com.example.aula4
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.aula4.databinding.ActivityMainBinding
 import net.objecthunter.exp4j.ExpressionBuilder
 
@@ -10,17 +12,31 @@ class MainActivity : AppCompatActivity() {
     var igual=false
     private lateinit var binding: ActivityMainBinding
     private val TAG =MainActivity::class.java.simpleName
-    val lista = mutableListOf<String>()
+    private val operations= mutableListOf<String>()
+    private val adapter=HistoryAdapter(::onOperationClick)
 
+    private fun onOperationClick(operation:String){
+        Toast.makeText(this,operation,Toast.LENGTH_LONG).show()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.i(TAG,"o metedo onCreate foi invocado")
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 
+    override fun onDestroy() {
+        Log.i(TAG,"o metedo onDestroy foi invocado")
+        super.onDestroy()
+    }
+
     override fun onStart() {
         super.onStart()
+
+        adapter.updateItems(operations)
+        binding.rvHistoric?.layoutManager =LinearLayoutManager(this)
+        binding.rvHistoric?.adapter = adapter
         binding.button1.setOnClickListener{onClickNumber("1")}
         binding.button2.setOnClickListener{onClickNumber("2")}
         binding.button3.setOnClickListener{onClickNumber("3")}
@@ -32,11 +48,11 @@ class MainActivity : AppCompatActivity() {
         binding.buttonMultiplicate.setOnClickListener{onClickSymbol("*")}
 
         binding.buttonClear.setOnClickListener {
-            Log.i(TAG,"botao +")
+            Log.i(TAG,"botao clear")
             if(binding.textVisor.text.toString()=="0"){
 
             }else{
-                binding.textVisor.text=""
+                binding.textVisor.text="0"
             }
             igual=false
         }
@@ -50,12 +66,16 @@ class MainActivity : AppCompatActivity() {
         }
         binding.buttonEquals.setOnClickListener {
             Log.i(TAG,"botao =")
-            lista.add(binding.textVisor.text.toString())
-            val expression=ExpressionBuilder(binding.textVisor.text.toString()).build()
-            binding.textVisor.text=expression.evaluate().toString()
+            val inicioConta=binding.textVisor.text.toString()
+            val sinalIgual="="
+            val resultado=ExpressionBuilder(binding.textVisor.text.toString()).build()
+            val contaTotal=inicioConta+sinalIgual+resultado.evaluate().toString()
+            Log.i(TAG,"é ${contaTotal}")
+            operations.add(contaTotal)
+            adapter.updateItems(operations)
+            binding.textVisor.text=resultado.evaluate().toString()
             Log.i(TAG,"O resultado é ${binding.textVisor.text}")
             igual=true
-
 
         }
     }

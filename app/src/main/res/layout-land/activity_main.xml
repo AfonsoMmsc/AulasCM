@@ -23,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_historic"
             android:layout_width="0dp"
@@ -30,13 +31,13 @@
             android:layout_weight="2"/>
 
         <LinearLayout
-            android:layout_weight="8"
-            android:weightSum="4"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
             android:orientation="vertical">
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -76,25 +77,25 @@
                     android:id="@+id/button_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4"/>
+                    android:text="4" />
 
                 <Button
                     android:id="@+id/button5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5"/>
+                    android:text="5" />
 
                 <Button
                     android:id="@+id/button_6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="6"/>
+                    android:text="6" />
 
                 <Button
                     android:id="@+id/button_addition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="+"/>
+                    android:text="+" />
 
             </LinearLayout>
 
@@ -107,25 +108,25 @@
                     android:id="@+id/button_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1"/>
+                    android:text="1" />
 
                 <Button
                     android:id="@+id/button2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2"/>
+                    android:text="2" />
 
                 <Button
                     android:id="@+id/button_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3"/>
+                    android:text="3" />
 
                 <Button
                     android:id="@+id/button_equals"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="="/>
+                    android:text="=" />
 
             </LinearLayout>
 
