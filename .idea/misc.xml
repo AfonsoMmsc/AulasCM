@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/afons/StudioProjects/Aula4/app/src/main/res/layout-land/activity_main.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/afons/StudioProjects/Aula4/app/src/main/res/layout-land/fragment_calculator.xml" value="0.15211640211640212" />
         <entry key="..\:/Users/afons/StudioProjects/Aula4/app/src/main/res/layout-sw600dp/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/afons/StudioProjects/Aula4/app/src/main/res/layout/activity_main.xml" value="0.16847826086956522" />
+        <entry key="..\:/Users/afons/StudioProjects/Aula4/app/src/main/res/layout/fragment_calculator.xml" value="0.17708333333333334" />
         <entry key="..\:/Users/afons/StudioProjects/Aula4/app/src/main/res/layout/item_expression.xml" value="0.17708333333333334" />
       </map>
     </option>
